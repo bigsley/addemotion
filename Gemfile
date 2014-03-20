@@ -33,3 +33,6 @@ group :doc do
 end
 
 gem 'rails_12factor', group: :production
+
+gem 'ember-rails'
+gem 'ember-source', '1.4.0'

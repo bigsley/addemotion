@@ -1,3 +1,6 @@
 Addemotion::Application.routes.draw do
-  root 'welcome#index'
+  get "static/index"
+  resources :things
+
+  root 'static#index'
 end
