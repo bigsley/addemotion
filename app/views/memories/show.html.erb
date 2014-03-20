@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mood:</strong>
+  <%= @memory.mood %>
+</p>
+
+<p>
+  <strong>Stress:</strong>
+  <%= @memory.stress %>
+</p>
+
+<%= link_to 'Edit', edit_memory_path(@memory) %> |
+<%= link_to 'Back', memories_path %>

@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <div>
+    <div>
+      <button type="button" {{action 'happy'}} {{bind-attr
+        class=":btn isHappy:btn-primary:btn-default"}}>:)</button>
+      <button type="button" {{action 'sad'}} {{bind-attr
+        class=":btn isSad:btn-primary:btn-default"}}>(ಥ_ಥ)</button>
+    </div>
+    <div>
+      <button type="button" {{action 'stressed'}} {{bind-attr
+        class=":btn isStressed:btn-primary:btn-default"}}>(´・ω・)っ</button>
+      <button type="button" {{action 'chill'}} {{bind-attr
+        class=":btn isChill:btn-primary:btn-default"}}>(¬‿¬)</button>
+    </div>
+    <div>
+      What's goin on: {{input valueBinding='explanation'}}
+    </div>
+  </div>
+
+  <div>
+    <button {{action 'saveMemory'}} {{bind-attr disabled=saveable}}>Save Memory</button>
+    {{saveable}}
+  </div>
+
+</div>

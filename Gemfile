@@ -36,3 +36,11 @@ gem 'rails_12factor', group: :production
 
 gem 'ember-rails'
 gem 'ember-source', '1.4.0'
+
+gem 'debugger'
+
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+
+gem "bcrypt"

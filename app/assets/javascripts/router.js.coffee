@@ -1,5 +1,8 @@
 # For more information see: http://emberjs.com/guides/routing/
 
 Addemotion.Router.map () ->
-  @resource('things', {path: 'things'})
+  @route 'login', path: '/login'
+  @resource 'app', ->
+    @resource 'dashboard', {path: '/dashboard'}
+    @resource 'analysis', {path: '/analysis'}
 

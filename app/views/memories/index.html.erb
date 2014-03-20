@@ -1,0 +1,29 @@
+<h1>Listing memories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mood</th>
+      <th>Stress</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memories.each do |memory| %>
+      <tr>
+        <td><%= memory.mood %></td>
+        <td><%= memory.stress %></td>
+        <td><%= link_to 'Show', memory %></td>
+        <td><%= link_to 'Edit', edit_memory_path(memory) %></td>
+        <td><%= link_to 'Destroy', memory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memory', new_memory_path %>

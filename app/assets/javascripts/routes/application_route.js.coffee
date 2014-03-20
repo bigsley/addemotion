@@ -1,3 +1,1 @@
-Addemotion.ApplicationRoute = Ember.Route.extend
-  beforeModel: ->
-    @transitionTo 'things'
+Addemotion.ApplicationRoute = Ember.Route.extend {}

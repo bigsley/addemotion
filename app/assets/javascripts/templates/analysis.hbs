@@ -1,0 +1,9 @@
+<div class="analysis">
+  <h1>
+    # Memories: {{memories.length}}
+  </h1>
+
+  {{#each memory in controller}}
+    {{view Addemotion.MemoryView memory=memory}}
+  {{/each}}
+</div>
