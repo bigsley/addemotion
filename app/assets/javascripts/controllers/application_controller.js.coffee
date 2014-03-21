@@ -1,4 +1,4 @@
-Addemotion.ApplicationController = Ember.Controlller.extend
+Addemotion.ApplicationController = Ember.Controller.extend
   actions: 
     logout: ->
       $.ajax
@@ -7,6 +7,6 @@ Addemotion.ApplicationController = Ember.Controlller.extend
         method: 'DELETE'
         success: (data) =>
           @set('credential.loggedIn', false)
-          @transitionToRoute('login')
+          window.location.reload()
         error: (data) ->
           console.log(data)

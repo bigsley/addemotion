@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def show
+    render json: {loggedIn: !session[:user_id].nil?}
+  end
+
   def destroy
     session[:user_id] = nil
     render json: {}

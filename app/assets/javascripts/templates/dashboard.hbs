@@ -1,15 +1,15 @@
 <div class="dashboard">
   <div>
     <div>
-      <button type="button" {{action 'happy'}} {{bind-attr
+      <button type="button" title="happy" {{action 'happy'}} {{bind-attr
         class=":btn isHappy:btn-primary:btn-default"}}>:)</button>
-      <button type="button" {{action 'sad'}} {{bind-attr
+      <button type="button" title="sad" {{action 'sad'}} {{bind-attr
         class=":btn isSad:btn-primary:btn-default"}}>:(</button>
     </div>
     <div>
-      <button type="button" {{action 'stressed'}} {{bind-attr
+      <button type="button" title="stressed" {{action 'stressed'}} {{bind-attr
         class=":btn isStressed:btn-primary:btn-default"}}>:[</button>
-      <button type="button" {{action 'chill'}} {{bind-attr
+      <button type="button" title="chill" {{action 'chill'}} {{bind-attr
         class=":btn isChill:btn-primary:btn-default"}}>:|</button>
     </div>
     <div>
@@ -19,7 +19,6 @@
 
   <div>
     <button {{action 'saveMemory'}} {{bind-attr disabled=saveable}}>Save Memory</button>
-    {{saveable}}
   </div>
 
 </div>
