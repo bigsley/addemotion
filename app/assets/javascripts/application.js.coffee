@@ -39,6 +39,7 @@ Addemotion.GroupDataObject = Ember.Object.extend
   numberSad: null
   numberStressed: null
   numberChill: null
+  explanations: []
 
 Addemotion.MyDataObject = Ember.Object.extend
   memoriesToday: null

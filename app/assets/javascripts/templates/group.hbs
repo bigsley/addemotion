@@ -1,20 +1,27 @@
 <div class="group">
   <h1>Addepar's Stats</h1>
   <div class="panel">
-    <h2>Users: {{numberUsers}} </h2>
-    <h2>Active Today: {{activeToday}}</h2>
-
-    <div class="data">
+    <h4>Users: {{numberUsers}} </h4>
+    <h4>Active Today: {{activeToday}}</h4>
+    <h4 class="data">
       Happy: {{numberHappy}}
-    </div>
-    <div class="data">
+    </h4>
+    <h4 class="data">
       Sad: {{numberSad}}
-    </div>
-    <div class="data">
+    </h4>
+    <h4 class="data">
       Stressed: {{numberStressed}}
-    </div>
-    <div class="data">
+    </h4>
+    <h4 class="data">
       Chill: {{numberChill}}
-    </div>
+    </h4>
+  </div>
+  <div class="panel">
+    <h2>What's Happenin'?</h2>
+    {{#each explanation in explanations}}
+      <div class="explanation">
+        "{{explanation}}"
+      </div>
+    {{/each}} 
   </div>
 </div>
