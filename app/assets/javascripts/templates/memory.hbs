@@ -1,20 +1,16 @@
-<h4>
-  Memory:
-</h4>
-
-<div>
-  Mood: {{view.mood}}
-</div>
-<div>
-  Stress: {{view.stress}}
-</div>
-{{#unless view.explanationEmpty}}
-  <div>
-    Explanation: {{view.explanation}}
+<div class="memory">
+  <div class="fact">
+    <span class="text">Mood:</span>
+    <span class="value">{{view.mood}}</span> & <span class="value">{{view.stress}}</span>
   </div>
-{{/unless}}
-<div>
-  Creation date: {{view.createdAt}}
+  {{#unless view.explanationEmpty}}
+    <div class="fact">
+      <span class="text">What Happened:</span>
+      <span class="value">{{view.explanation}}</span>
+    </div>
+  {{/unless}}
+  <div class="fact">
+    Creation date: {{view.createdAt}}
+  </div>
 </div>
-
 

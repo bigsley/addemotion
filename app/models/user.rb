@@ -4,24 +4,34 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :on => :create
   has_many :memories
 
-  def memoriesToday
-    return @memoriesToday if @memoriesToday
-    @memoriesToday = self.memories.where("created_at > ?", DateTime.now.beginning_of_day).all
+  def memories_today
+    return @memories_today if @memories_today
+    @memories_today = self.memories.where("created_at > ?", DateTime.now.beginning_of_day).all
   end
 
-  def moodToday
-    return "none" if memoriesToday.empty?
-    happyToday = memoriesToday.count {|x| x.mood == "happy"}
-    sadToday = memoriesToday.count {|x| x.mood == "sad"}
+  def mood_today
+    return "none" if memories_today.empty?
+    happy_today = memories_today.count {|x| x.mood == "happy"}
+    sad_today = memories_today.count {|x| x.mood == "sad"}
 
-    happyToday >= sadToday ? "happy" : "sad"
+    happy_today >= sad_today ? "happy" : "sad"
   end
 
-  def stressToday
-    return "none" if memoriesToday.empty?
-    stressedToday = memoriesToday.count {|x| x.stress == "stressed"}
-    chillToday = memoriesToday.count {|x| x.stress == "chill"}
+  def stress_today
+    return "none" if memories_today.empty?
+    stressed_today = memories_today.count {|x| x.stress == "stressed"}
+    chill_today = memories_today.count {|x| x.stress == "chill"}
 
-    chillToday >= stressedToday ? "chill" : "stressed"
+    chill_today >= stressed_today ? "chill" : "stressed"
+  end
+
+  def explanations_today
+    memories_today.map do |memory| 
+      if memory.explanation.nil? or memory.explanation.strip.empty?
+        nil
+      else
+        memory.explanation.strip
+      end
+    end.compact
   end
 end

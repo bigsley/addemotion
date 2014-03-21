@@ -38,18 +38,25 @@
       <button {{action 'saveMemory'}} {{bind-attr disabled=saveable}}>Save Memory</button>
     </div>
   </div>
-  <div class="panel">
+  <div class="panel todays-stats">
     <h2> Today's Stats: </h2>
-    <div>
-      Memories Today: {{myData.memoriesToday}}
+    <div class="stat">
+      Memories Today: <span
+        class="value">{{myData.memoriesToday}}</span>
     </div>
-    <div>
-      Mood Today: {{myData.moodToday}}
+    <div class="stat">
+      Mood Today: <span class="value">{{myData.moodToday}}</span>
     </div>
-    <div>
-      Stress Today: {{myData.stressToday}}
+    <div class="stat">
+      Stress Today: <span class="value">{{myData.stressToday}}</span>
     </div>
-
+    <div class="explanations">
+      <div class="heading">Things What Happened Today:</div>
+      {{#each explanation in myData.explanationsToday}}
+        <div class="explanation">
+          "{{explanation}}"
+        </div>
+      {{/each}}
+    </div>
   </div>
-
 </div>

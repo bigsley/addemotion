@@ -44,3 +44,4 @@ Addemotion.MyDataObject = Ember.Object.extend
   memoriesToday: null
   moodToday: "none"
   stressToday: "none"
+  explanationsToday: []

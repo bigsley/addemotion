@@ -10,6 +10,6 @@ Addemotion.MemoryView = Ember.View.extend
     @get('explanation')?.trim().length is 0
   .property 'explanation'
   createdAt: Ember.computed ->
-    moment(@get('memory.createdAt')).format('MMMM Do YYYY, h:mm:ss a');
+    moment(@get('memory.createdAt')).fromNow();
   .property 'memory.createdAt'
 
