@@ -1,28 +1,45 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Versions:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+RVM - 1.25.20 
+Ruby - 2.1.1
+Rails - 4.0.4
+Homebrew - 0.9.5
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Steps - OS X
+
+1. Download and install homebrew
+-- ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" 
+--- uses system ruby
+--- note that this requires Command Line Tools for XCode
+
+2. Download and install rvm
+-- \curl -sSL https://get.rvm.io | bash 
+
+3. Use rvm to install latest stable ruby
+-- rvm install 2.1.1
+
+4. Create a gemset for rails and install rails
+-- rvm gemset create rails-4.0
+-- gem install rails --no-ri --no-rdoc
+--- last two flags are importan because ri/rdoc are huge & useless
+
+5. Install postgresql
+-- brew install postgresql
+-- follow steps at:
+https://www.digitalocean.com/community/articles/how-to-setup-ruby-on-rails-with-postgres
+to set up a role
+
+6. Run `rake db:setup & rake db:migrate`
+
+7. Run `rails s` to start your server and visit http://localhost:3000
+
+
+Todo:
+
+- Integrate with LDAP
+- Send reminder emails
+- Badges
+- More emotional states & make "explanation" a select

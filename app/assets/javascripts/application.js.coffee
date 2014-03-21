@@ -16,8 +16,22 @@ window.Addemotion = Ember.Application.create
     @inject 'controller', 'credential', 'credential:current'
     @inject 'route', 'credential', 'credential:current'
 
+    @register 'groupData:current', Addemotion.GroupDataObject,
+      singleton: yes
+    @inject 'controller', 'groupData', 'groupData:current'
+    @inject 'route', 'groupData', 'groupData:current'
+
+
   ready: ->
     @injectCredential()
 
 Addemotion.CredentialObject = Ember.Object.extend
   loggedIn: false
+
+Addemotion.GroupDataObject = Ember.Object.extend
+  numberUsers: null
+  activeToday: null
+  numberHappy: null
+  numberSad: null
+  numberStressed: null
+  numberChill: null

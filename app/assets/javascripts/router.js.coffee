@@ -5,4 +5,5 @@ Addemotion.Router.map () ->
   @resource 'app', ->
     @resource 'dashboard', {path: '/dashboard'}
     @resource 'analysis', {path: '/analysis'}
+    @resource 'group', {path: '/group'}
 

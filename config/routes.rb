@@ -5,6 +5,7 @@ Addemotion::Application.routes.draw do
   resources :things
   resources :memories
   resource :sessions
+  resource :group_data
   resources :users
 
   root 'static#index'
