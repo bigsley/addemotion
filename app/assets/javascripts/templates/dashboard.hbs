@@ -1,40 +1,55 @@
 <div class="dashboard">
-  <h1>Create a Memory!</h1>
-  <h2>How are you feelin' right now?</h2>
-  <div>
-    <div class="emotion-grid">
-      <div class="clearfix">
-        <div class="emotion">
-          <label>Happy</label>
-          <button type="button" title="happy" {{action 'happy'}} {{bind-attr
-            class=":btn isHappy:btn-primary:btn-default"}}>:)</button>
+  <h1>Dashboard</h1>
+  <div class="panel">
+    <h2>How are you feelin' right now?</h2>
+    <div>
+      <div class="emotion-grid">
+        <div class="clearfix">
+          <div class="emotion">
+            <label>Happy</label>
+            <button type="button" title="happy" {{action 'happy'}} {{bind-attr
+              class=":btn isHappy:btn-primary:btn-default"}}>:)</button>
+          </div>
+          <div class="emotion">
+            <label>Sad</label>
+            <button type="button" title="sad" {{action 'sad'}} {{bind-attr
+              class=":btn isSad:btn-primary:btn-default"}}>:(</button>
+          </div>
         </div>
-        <div class="emotion">
-          <label>Sad</label>
-          <button type="button" title="sad" {{action 'sad'}} {{bind-attr
-            class=":btn isSad:btn-primary:btn-default"}}>:(</button>
+        <div class="clearfix">
+          <div class="emotion">
+            <label>Stressed</label>
+            <button type="button" title="stressed" {{action 'stressed'}} {{bind-attr
+              class=":btn isStressed:btn-primary:btn-default"}}>:[</button>
+          </div>
+          <div class="emotion">
+            <label>Chill</label>
+            <button type="button" title="chill" {{action 'chill'}} {{bind-attr
+              class=":btn isChill:btn-primary:btn-default"}}>:|</button>
+          </div>
         </div>
       </div>
-      <div class="clearfix">
-        <div class="emotion">
-          <label>Stressed</label>
-          <button type="button" title="stressed" {{action 'stressed'}} {{bind-attr
-            class=":btn isStressed:btn-primary:btn-default"}}>:[</button>
-        </div>
-        <div class="emotion">
-          <label>Chill</label>
-          <button type="button" title="chill" {{action 'chill'}} {{bind-attr
-            class=":btn isChill:btn-primary:btn-default"}}>:|</button>
-        </div>
+      <div class="explanation-grid">
+        What's goin' on? (optional) {{input valueBinding='explanation'}}
       </div>
     </div>
-    <div class="explanation-grid">
-      What's goin' on? (optional) {{input valueBinding='explanation'}}
+
+    <div>
+      <button {{action 'saveMemory'}} {{bind-attr disabled=saveable}}>Save Memory</button>
     </div>
   </div>
+  <div class="panel">
+    <h2> Today's Stats: </h2>
+    <div>
+      Memories Today: {{myData.memoriesToday}}
+    </div>
+    <div>
+      Mood Today: {{myData.moodToday}}
+    </div>
+    <div>
+      Stress Today: {{myData.stressToday}}
+    </div>
 
-  <div>
-    <button {{action 'saveMemory'}} {{bind-attr disabled=saveable}}>Save Memory</button>
   </div>
 
 </div>

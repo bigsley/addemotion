@@ -8,9 +8,11 @@
 <div>
   Stress: {{view.stress}}
 </div>
-<div>
-  Explanation: {{view.explanation}}
-</div>
+{{#unless view.explanationEmpty}}
+  <div>
+    Explanation: {{view.explanation}}
+  </div>
+{{/unless}}
 <div>
   Creation date: {{view.createdAt}}
 </div>

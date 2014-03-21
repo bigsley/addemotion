@@ -1,9 +1,13 @@
 <div class="analysis">
-  <h1>
-    # Memories: {{memories.length}}
-  </h1>
+  <h1>Analysis</h1>
 
-  {{#each memory in controller}}
-    {{view Addemotion.MemoryView memory=memory}}
-  {{/each}}
+  <div class="panel">
+    <h2>
+      All Memories ({{memories.length}})
+    </h2>
+
+    {{#each memory in controller}}
+      {{view Addemotion.MemoryView memory=memory}}
+    {{/each}}
+  </div>
 </div>

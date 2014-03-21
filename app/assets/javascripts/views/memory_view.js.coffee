@@ -5,6 +5,10 @@ Addemotion.MemoryView = Ember.View.extend
   mood: Ember.computed.alias('memory.mood')
   stress: Ember.computed.alias('memory.stress')
   explanation: Ember.computed.alias('memory.explanation')
+  explanationEmpty: Ember.computed ->
+    return true unless @get('explanation')
+    @get('explanation')?.trim().length is 0
+  .property 'explanation'
   createdAt: Ember.computed ->
     moment(@get('memory.createdAt')).format('MMMM Do YYYY, h:mm:ss a');
   .property 'memory.createdAt'

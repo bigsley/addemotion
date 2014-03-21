@@ -10,7 +10,7 @@
 #
 # for more details see: http://emberjs.com/guides/application/
 window.Addemotion = Ember.Application.create
-  injectCredential: ->
+  injectSingletons: ->
     @register 'credential:current', Addemotion.CredentialObject,
       singleton: yes
     @inject 'controller', 'credential', 'credential:current'
@@ -21,9 +21,13 @@ window.Addemotion = Ember.Application.create
     @inject 'controller', 'groupData', 'groupData:current'
     @inject 'route', 'groupData', 'groupData:current'
 
+    @register 'myData:current', Addemotion.MyDataObject,
+      singleton: yes
+    @inject 'controller', 'myData', 'myData:current'
+    @inject 'route', 'myData', 'myData:current'
 
   ready: ->
-    @injectCredential()
+    @injectSingletons()
 
 Addemotion.CredentialObject = Ember.Object.extend
   loggedIn: false
@@ -35,3 +39,8 @@ Addemotion.GroupDataObject = Ember.Object.extend
   numberSad: null
   numberStressed: null
   numberChill: null
+
+Addemotion.MyDataObject = Ember.Object.extend
+  memoriesToday: null
+  moodToday: "none"
+  stressToday: "none"

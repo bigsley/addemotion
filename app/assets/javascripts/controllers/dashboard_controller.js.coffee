@@ -17,6 +17,14 @@ Addemotion.DashboardController = Ember.Controller.extend
   saveable: Ember.computed ->
     not (@get('mood')? and @get('stress')?)
   .property 'mood', 'stress'
+
+  refreshMyData: ->
+    $.ajax
+      url: 'my_data'
+      dataType: 'json'
+      success: (data) =>
+        @get('myData').setProperties(data)
+
   actions:
     happy: ->
       @set 'newMemory.mood', 'happy'
@@ -31,5 +39,6 @@ Addemotion.DashboardController = Ember.Controller.extend
       @set 'newMemory.stress', 'chill'
 
     saveMemory: ->
-      @get('newMemory').save()
+      @get('newMemory').save().then =>
+        @refreshMyData()
       @set 'newMemory', Addemotion.Memory.createRecord()

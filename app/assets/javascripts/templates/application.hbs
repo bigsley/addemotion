@@ -1,18 +1,20 @@
-<div class="navbar navbar-default">
-  <div class="navbar-inner">
-    <div class="nav-item">
-      {{#link-to 'dashboard'}}Dashboard{{/link-to}}
-    </div>
-    <div class="nav-item">
-      {{#link-to 'analysis'}}Analysis{{/link-to}}
-    </div>
-    <div class="nav-item">
-      {{#link-to 'group'}}Group{{/link-to}}
-    </div>
-    <div class="nav-item logout">
-      <a {{action 'logout'}}>Logout</a>
+{{#if credential.loggedIn}}
+  <div class="navbar navbar-default">
+    <div class="navbar-inner">
+      <div class="nav-item">
+        {{#link-to 'dashboard'}}Dashboard{{/link-to}}
+      </div>
+      <div class="nav-item">
+        {{#link-to 'analysis'}}Analysis{{/link-to}}
+      </div>
+      <div class="nav-item">
+        {{#link-to 'group'}}Group{{/link-to}}
+      </div>
+      <div class="nav-item logout">
+        <a {{action 'logout'}}>Logout</a>
+      </div>
     </div>
   </div>
-</div>
+{{/if}}
 
 {{outlet}}
