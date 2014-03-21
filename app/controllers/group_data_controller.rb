@@ -6,16 +6,20 @@ class GroupDataController < ApplicationController
     
     # today's memories
     beginning_of_day = DateTime.now.beginning_of_day
-    memories = users.map {|x| x.memories.where("created_at > ?", beginning_of_day).last}.compact
+    memories = users.map {|x| x.memories.where("created_at > ?", DateTime.now.beginning_of_day).last}.compact
+
     numberActiveToday = memories.count / 2
+
+    moods = users.map {|x| x.moodToday}
+    stresses = users.map {|x| x.stressToday}
 
     render json: {
       numberUsers: users.count,
       activeToday: memories.count,
-      numberHappy: memories.count {|x| x.mood == "happy"},
-      numberSad: memories.count {|x| x.mood == "sad"},
-      numberStressed: memories.count {|x| x.stress == "stressed"},
-      numberChill: memories.count {|x| x.stress == "chill"}
+      numberHappy: moods.count {|x| x == "happy"},
+      numberSad: moods.count {|x| x == "sad"},
+      numberStressed: stresses.count {|x| x == "stressed"},
+      numberChill: stresses.count {|x| x == "chill"}
     }
   end
 end
